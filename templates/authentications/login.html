@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Login{% endblock title %}
+
+
+{% block body %}
+<section id="sig" class="d-flex align-items-center">
+
+    <div class="form_signup">
+        <h3 class="head_signup">Login</h3>
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+          <strong>{{message}}</strong> 
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %} 
+  
+        <form action="/authen/login/" method="post" >{% csrf_token %}
+            <div class="row">
+                <div class=" p-3 md-6 form-group">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter registered mail" >
+                    
+                </div>
+                
+                <div class=" p-3 md-6 form-group mt-3 mt-md-0">
+                    <input type="password" class="form-control" name="pass1" id="pass1" placeholder="password" >
+                    
+              </div>
+            </div>
+            
+            
+            <div class="text-center"><button type="submit">Login in</button></div>
+            New User ? <a href="/authen/signup " style="
+            color: white;">SignUp</a>
+        </form>
+    </div>
+        
+    
+</section>
+
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block titile %} Check-Out{% endblock titile %}
+{% block css %}
+<style>
+.cart{
+    background-color: lightblue;
+    height : 100vh;
+}
+
+</style>
+{% endblock css %}
+
+
+{% block body %}
+
+
+<br><br><br><br><br>
+
+
+<section class = "cart">
+
+ <div class ="box element">
+    <div class = "cart rows">
+         <div style = "flex:2"></div>
+         <div style = "flex:2"><strong>Item</strong></div>
+         <div style = "flex:2"><strong>Price</strong></div>
+         <div style = "flex:1"><strong>Quantity</strong></div>
+         <div style = "flex:1"><strong>Total</strong></div>
+
+    </div>
+
+    {%for item in items %}
+    <div class = "cart-row">
+            <div style = "flex:2"><img src="{{item.image.url}}" class="menu-img" alt="" ></div>
+            <div style = "flex:2">{{item.menu.product_name}}</div>
+            <div style = "flex:1">{{item.menu.price|floatformat:2}}</div>
+            <div style = "flex:1">
+                <p class = "quantity">{{ item.quantity}}</p>
+                <div class = "quantity">img
+
+                </div>
+                     
+            </div>
+    
+    <div style = "flex:1">Rs. 55</div>
+        </div>
+
+        {% endfor %}
+    </div> 
+    </div> 
+    </div> 
+
+
+
+            
+
+
+
+</section>
+
+
+
+{% endblock body %}

@@ -1,0 +1,50 @@
+{% for foo in foods  %}
+<div class="col-lg-6 menu-item filter-starters">
+    <img src="{{foo.image.url}}" class="menu-img" alt="">
+    <div class="menu-content">
+        <a href="#">{{foo.product_name}}</a><span>{{foo.price}}</span>
+      </div>
+      <div class="menu-ingredients">
+          {{foo.desc}}
+      </div>
+      <div>
+      
+        {% comment %} <button type="submit">Add to Cart</button> {% endcomment %}
+        {% comment %} <button type="button" id="myiBtn">+</button>
+          <input type="text" name="quantity" value="0" maxlength="2" max="10" size="1" id="number" />
+        <button type="button" id="mydBtn">-</button> {% endcomment %}
+        <span id = "divpr{{i.id}}" class="divpr">
+          <button id = "pr{{i.id}}" class="btn-danger cart btn-sm mt-0">
+            Add to cart
+          </button>
+        </span>
+      
+  </div>
+  
+  
+  
+</div>
+{% endfor %}
+
+
+{% for foo in foods%}
+<div class = "col-lg-6 menu-item filter-starters">
+  <img src="{{foo.image.url}}" class="card-img-top" alt="" height = "200px" width = "150px">
+     <div claass="card-title mt-2" id = "namepr{{foo.id}}">{{foo.product_name}}</h5>
+       <p class = "card-text">{{foo.desc|slice:"0:53"}}...</p>
+       <h6 class="card-title mb-3">
+        Price:<span id = "pricepr{{foo.id}}">{{foo.price}}</span>
+       </h6>
+       <span id = "divpr{{foo.id}}" class="divpr">
+         <button id = "pr{{foo.id}}" class="btn-danger cart btn-sm mt-0">
+           Add to cart
+         </button>
+       </span>
+        <a herf="{{foo.image.url}}">
+        <button class = "btn btn-dark btn-sm cart"> View</button>
+      </div>
+</div>
+
+
+
+{% endfor %}
