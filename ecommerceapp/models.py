@@ -1,5 +1,9 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import User
+from datetime import time
+from django import forms
+
 # Create your models here.
 class Contact(models.Model):
     contact_id=models.AutoField(primary_key=True)
@@ -12,14 +16,15 @@ class Contact(models.Model):
         return  self.name
 
 class Menu(models.Model):
-    id=models.AutoField
+    product_id=models.AutoField
     product_name=models.CharField(max_length=100)
     category = models.CharField(max_length=100,default="")
     subcategory = models.CharField(max_length=50,default="")
     price = models.IntegerField(default=0)
     desc = models.CharField(max_length=300)
     image = models.ImageField(upload_to='media/images',default="")
-
+    
+  
     def __str__(self):
         return self.product_name
 
@@ -37,17 +42,17 @@ class Orders(models.Model):
     amount = models.IntegerField(default=0)
     name = models.CharField(max_length=90)
     email = models.CharField(max_length=90)
-    address1 = models.CharField(max_length=200)
-    address2 = models.CharField(max_length=200)
-    city = models.CharField(max_length=100)
-    state = models.CharField(max_length=100)
-    zip_code = models.CharField(max_length=100)    
+    block= models.CharField(max_length=200)
+    room_num = models.CharField(max_length=200)
+    reg = models.CharField(max_length=200, default="")
+    
     oid=models.CharField(max_length=150,blank=True)
     amountpaid=models.CharField(max_length=500,blank=True,null=True)
     paymentstatus=models.CharField(max_length=20,blank=True)
     phone = models.CharField(max_length=100,default="")
     def __str__(self):
-        return self.name
+        return self.name 
+
 
 
 class OrderUpdate(models.Model):

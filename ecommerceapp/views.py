@@ -39,18 +39,20 @@ def CheckOut(request):
         name = request.POST.get('name', '')
         amount = request.POST.get('amt')
         email = request.POST.get('email', '')
-        address1 = request.POST.get('address1', '')
-        address2 = request.POST.get('address2','')
-        city = request.POST.get('city', '')
-        state = request.POST.get('state', '')
-        zip_code = request.POST.get('zip_code', '')
+        block = request.POST.get('block', '')
+        room_num = request.POST.get('room_num','')
+       
+        reg= request.POST.get('','')
+     
         phone = request.POST.get('phone', '')
-        Order = Orders(items_json=items_json,name=name,amount=amount, email=email, address1=address1,address2=address2,city=city,state=state,zip_code=zip_code,phone=phone)
+        Order = Orders(items_json=items_json,name=name,amount=amount, email=email, block=block,room_num=room_num,reg=reg,phone=phone)
         print(amount)
+        
         Order.save()
         update = OrderUpdate(order_id=Order.order_id,update_desc="the order has been placed")
         update.save()
         thank = True
+        messages.info(request,"Order placed !!")
 
         # # PAYMENT INTEGRATION
 
@@ -71,7 +73,7 @@ def CheckOut(request):
         # param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
         # return render(request, 'paytm.html', {'param_dict': param_dict})
         
-    return render(request,'checkout.html')
+    return render(request,'index.html')
 
 
     

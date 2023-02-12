@@ -79,11 +79,10 @@
           {% comment %} <li><a class="nav-link scrollto" href="#about">About</a></li> {% endcomment %}
           <li><a class="nav-link scrollto" href="/blog/">Menu</a></li>
           <li><a class="nav-link scrollto" href="#chefs">Profile</a></li>
-          <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" ><i class="fa-solid fa-cart-shopping"></i>   (<span id="cart">0</span>)
+          <button type="button" class="nav-link scrollto bg-danger p-3 m-2 text-white" id="popcart" data-container="body" data-toggle="popover" data-placement="bottom" data-html="true" ><i class="fa-solid fa-cart-shopping"></i>  Cart (<span id="cart">0</span>)
           </button>
-          
           {% if request.user.is_authenticated %}
-          <li><a class="nav-link scrollto " href="/checkout/">Checkout</a></li>
+          
           
           <li><a class="nav-link scrollto " href="/authen/logout/">Logout {{user.username}}</a></li>
           {% else %}
